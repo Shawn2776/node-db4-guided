@@ -22,12 +22,11 @@ exports.up = function(knex) {
     })
     .createTable("zoo_animals",tbl=>{
         tbl.increments("zoo_animal_id")
-        tbl.string("animal_name").notNullable()
-        tbl.integer("species_id")
+        tbl.integer("zoo_id")
             .unsigned()
             .notNullable()
-            .references("species_id")
-            .inTable("species")
+            .references("zoo_id")
+            .inTable("zoos")
             .onDelete("CASCADE")
     })
 };
